@@ -8,15 +8,12 @@ def welcome():
     
 
 # Create and test a read_template function that takes in a path to text file
-# and returns a stripped string of the file’s contents. should raise a 
+# and returns a stripped string of the file’s contents. Should raise a 
 # FileNotFoundError if path is invalid.
-# def read_template(my_path):
 def read_template(my_path):
-    print(my_path)
     try:
         lib_template = open(my_path, 'r') 
         contents = lib_template.read()
-        print(contents)
         return contents
     
     except FileNotFoundError:
@@ -38,10 +35,10 @@ def read_template(my_path):
 
 # Write the completed MadLib to a new file
 def write_madlib(new_path):
-    with open ('new_path','w') as complete_lib:
-        complete_lib.write()
+    with open (new_path,'w') as complete_lib:
+        complete_lib.write(read_template('dark_and_stormy_night.txt'))
 
 
 welcome()
 read_template('dark_and_stormy_night.txt')
-# write_madlib('completed_lib.txt')
+write_madlib('completed_lib_file.txt')

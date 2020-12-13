@@ -2,10 +2,10 @@ import pytest
 from madlib_cli.madlib_cli import read_template #, parse_template, merge
 
 # test read_template on short example
-def test_read_template_returns_stripped_string():
-    actual = read_template(dark_and_stormy_night.txt)
-    expected = "It was a {Adjective} and {Adjective} {Noun}."
-    assert actual == expected
+# def test_read_template_returns_stripped_string():
+#     actual = read_template(dark_and_stormy_night.txt)
+#     expected = "It was a {Adjective} and {Adjective} {Noun}."
+#     assert actual == expected
     
 # # test read_template on wrong path --passes and prints error on CLI
 # def test_read_template_returns_stripped_string():
@@ -32,9 +32,9 @@ def test_read_template_returns_stripped_string():
 #     assert actual == expected
 
 
-# def test_read_template_raises_exception_with_bad_path():
+def test_read_template_raises_exception_with_bad_path():
 
-#     with pytest.raises(FileNotFoundError):
-#         path = "missing.txt"
-#         read_template(path)
+    with pytest.raises(FileNotFoundError):
+        path = "missing.txt"
+        read_template(path)
 
