@@ -1,0 +1,10 @@
+Who am I?
+
+I am {Adjective} and {Adjective} with a {Adjective} {Body Part}. My {Body Part} is 
+{Color} and my battle cry sounds like {Sound}.  I am {Emotion} when I {Action} through
+the {Place}.
+
+If you want to find me, you need to {Action} and {Action} {Number 1-10} times before I
+will greet you with a hearty "{Greeting}" and a resounding {Sound}.  Then we will be
+friends for life or as long as {Time Period}!
+
