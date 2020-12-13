@@ -1,4 +1,9 @@
 # Print welcome with instructions
+def welcome():
+    print("""\n ***  Let\'s Play MadLibs!  ***\n
+    I\'ll ask you for words in a specific category of speech.  I'll use your 
+    choices to fill in a template and print your story to the screen\n""")
+    
 
 
 # Create and test a read_template function that takes in a path to text file
@@ -20,3 +25,5 @@
 # Print the completed MadLib to the command line
 
 # Write the completed MadLib to a new file
+
+welcome()
