@@ -11,10 +11,10 @@ def welcome():
 # and returns a stripped string of the file’s contents. should raise a 
 # FileNotFoundError if path is invalid.
 # def read_template(my_path):
-def read_template():
-    # print(my_path)
+def read_template(my_path):
+    print(my_path)
     try:
-        lib_template = open('dark_and_stormy_night.txt', 'r') 
+        lib_template = open(my_path, 'r') 
         contents = lib_template.read()
         print(contents)
         return contents
@@ -43,5 +43,5 @@ def write_madlib(new_path):
 
 
 welcome()
-read_template()
+read_template('dark_and_stormy_night.txt')
 # write_madlib('completed_lib.txt')
