@@ -25,6 +25,8 @@ def read_template(my_path):
 # language parts.(I chose RegEx approach; tested w/regex101.com)
 def parse_template(template):
     find_word = re.findall('({\w*})',template)
+        
+    # print(find_word)
     return find_word
 
 # Prompt user for inputs
@@ -43,9 +45,9 @@ def merge(template,list):
     for position in range (0,len(list)):
         merged_lib = re.sub('({\w*})',list[position],template)
         position += 1
-    print(list)
-    print(merged_lib)
-    print(template)
+    # print(list)
+    # print(merged_lib)
+    # print(template)
     return merged_lib
 
 
