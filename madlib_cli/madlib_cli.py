@@ -25,28 +25,42 @@ def read_template(my_path):
 # language parts.(I chose RegEx approach; tested w/regex101.com)
 def parse_template(template):
     find_word = re.findall('({\w*})',template)
-    print(find_word)
     return find_word
 
 # Prompt user for inputs
 def get_input(list):
+    user_words =[]
     for word in range (0,len(list)):
-        print(list[word])
+        print(f'Please enter a word in the category {list[word]}')
+        user_words.append(input('> ').lower())   
         word =+ 1
+    return (user_words)
 
 # Create and test a merge function that takes in a “bare” template and a list 
 # of user entered language parts, and returns a string with the language parts 
 # inserted into the template.
+def merge(template,list):
+    for position in range (0,len(list)):
+        merged_lib = re.sub('({\w*})',list[position],template)
+        position += 1
+    print(list)
+    print(merged_lib)
+    print(template)
+    return merged_lib
 
 
-# Print the completed MadLib to the command line
 
+# Print the completed MadLib to the command line and 
 # Write the completed MadLib to a new file
-def write_madlib(new_path):
+def write_madlib(new_path,info):
     with open (new_path,'w') as complete_lib:
-        complete_lib.write(read_template('dark_and_stormy_night.txt'))
+        print(f'\n Here is your story\n {info}')
+        complete_lib.write(info)
 
 
+# chained functions ugly programming but produces output
 welcome()
-get_input(parse_template(read_template('dark_and_stormy_night.txt')))
-write_madlib('completed_lib_file.txt')
+
+write_madlib('complete_lib_file.txt', 
+        merge(read_template('template.txt'),
+    (get_input(parse_template(read_template('template.txt'))))))
