@@ -1,7 +1,7 @@
 
 # MadLib CLI
 
-Submission pull request: https://github.com/kimmyd70/madlib-cli/pull/1
+Submission pull request: https://github.com/kimmyd70/madlib-cli/pull/2
 
 __________
 #### Developer: Kim Damalas
