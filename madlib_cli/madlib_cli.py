@@ -1,3 +1,4 @@
+import re
 
 
 # Print welcome with instructions
@@ -21,10 +22,17 @@ def read_template(my_path):
 
 # Create and test a parse_template function that takes in a template string 
 # and returns a string with language parts removed and a separate list of those 
-# language parts.
+# language parts.(I chose RegEx approach; tested w/regex101.com)
+def parse_template(template):
+    find_word = re.findall('({\w*})',template)
+    print(find_word)
+    return find_word
 
 # Prompt user for inputs
-
+def get_input(list):
+    for word in range (0,len(list)):
+        print(list[word])
+        word =+ 1
 
 # Create and test a merge function that takes in a “bare” template and a list 
 # of user entered language parts, and returns a string with the language parts 
@@ -40,5 +48,5 @@ def write_madlib(new_path):
 
 
 welcome()
-read_template('dark_and_stormy_night.txt')
+get_input(parse_template(read_template('dark_and_stormy_night.txt')))
 write_madlib('completed_lib_file.txt')
