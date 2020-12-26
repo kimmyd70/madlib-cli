@@ -18,16 +18,21 @@ def read_template(my_path):
         return contents
     
     except FileNotFoundError:
-        print("The file path is not correct")
+        print("FileNotFoundError: The file path is not correct")
 
 # Create and test a parse_template function that takes in a template string 
 # and returns a string with language parts removed and a separate list of those 
 # language parts.(I chose RegEx approach; tested w/regex101.com)
 def parse_template(template):
     find_word = re.findall('({\w*})',template)
-        
-    # print(find_word)
-    return find_word
+    final_list = []
+    for i in find_word:
+        string_edit = (i[1:-1])  
+        final_list.append(string_edit)
+    input_list = tuple(final_list)
+    new_template = re.sub(r'\{.*?\}', "{}", template)
+    print("Template:", new_template)
+    return (new_template, input_list)
 
 # Prompt user for inputs
 def get_input(list):
@@ -36,18 +41,17 @@ def get_input(list):
         print(f'Please enter a word in the category {list[word]}')
         user_words.append(input('> ').lower())   
         word =+ 1
-    return (user_words)
+    return user_words
 
 # Create and test a merge function that takes in a “bare” template and a list 
 # of user entered language parts, and returns a string with the language parts 
 # inserted into the template.
 def merge(template,list):
-    for position in range (0,len(list)):
-        merged_lib = re.sub('({\w*})',list[position],template)
-        position += 1
-    # print(list)
-    # print(merged_lib)
-    # print(template)
+    merged_lib = template
+    user_words = list
+    for answer in user_words:
+        merged_lib = re.sub('({\w*})', answer, merged_lib, 1)
+        
     return merged_lib
 
 
@@ -61,8 +65,18 @@ def write_madlib(new_path,info):
 
 
 # chained functions ugly programming but produces output
-welcome()
-
-write_madlib('complete_lib_file.txt', 
-        merge(read_template('template.txt'),
-    (get_input(parse_template(read_template('template.txt'))))))
+def start_game():
+    print()
+    welcome()
+    path = read_template('template.txt')
+    template, new_template = parse_template (path)
+    
+    user_answers = get_input(new_template)
+    completed = merge(template, user_answers)
+    print ('\n',completed)
+    
+    path2 = 'complete_lib_file.txt'
+    write_madlib(path2, completed)
+    
+    
+start_game()
