@@ -31,7 +31,7 @@ def parse_template(template):
         final_list.append(string_edit)
     input_list = tuple(final_list)
     new_template = re.sub(r'\{.*?\}', "{}", template)
-    print("Template:", new_template)
+    # print("Template:", new_template)
     return (new_template, input_list)
 
 # Prompt user for inputs
