@@ -60,7 +60,6 @@ def merge(template,list):
 # Write the completed MadLib to a new file
 def write_madlib(new_path,info):
     with open (new_path,'w') as complete_lib:
-        print(f'\n Here is your story\n {info}')
         complete_lib.write(info)
 
 
@@ -73,7 +72,7 @@ def start_game():
     
     user_answers = get_input(new_template)
     completed = merge(template, user_answers)
-    print ('\n',completed)
+    print(f'\n Here is your story\n {completed}')
     
     path2 = 'complete_lib_file.txt'
     write_madlib(path2, completed)
